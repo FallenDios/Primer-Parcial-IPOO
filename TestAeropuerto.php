@@ -36,13 +36,10 @@ if ($resultadoVenta) {
 
 // Promedio recaudado por aerolíneas
 echo "Promedio recaudado por cada aerolínea:\n";
-$promedios = [
-    $aerolinea1->getNombre() => $aeropuerto->promedioRecaudadoXAerolinea($aerolinea1->getIdentificacion()),
-    $aerolinea2->getNombre() => $aeropuerto->promedioRecaudadoXAerolinea($aerolinea2->getIdentificacion())
-];
+
+$promedios = $aeropuerto->promedioRecaudadoXAerolinea();
 
 foreach ($promedios as $nombreAerolinea => $promedio) {
     echo "Aerolínea: $nombreAerolinea - Promedio recaudado: $" . number_format($promedio, 2) . "\n";
 }
-
 ?>
